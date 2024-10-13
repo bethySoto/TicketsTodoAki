@@ -19,21 +19,27 @@
 
 package com.unicenta.pos.payment;
 
+import com.unicenta.format.Formats;
+
 public class PaymentInfoFree extends PaymentInfo {
     
     private double m_dTotal;
     private double m_dTendered;
     private String m_dCardName =null;
+    private double m_dPaid;
 //    private double m_dTip;    
    
     /** Creates a new instance of PaymentInfoFree
-     * @param dTotal */
-    public PaymentInfoFree(double dTotal) {
+     * @param dTotal 
+     * @param dPaid
+     */
+    public PaymentInfoFree(double dTotal, double dPaid) {
         m_dTotal = dTotal;
+        m_dPaid = dPaid;
     }
 
     public PaymentInfo copyPayment(){
-        return new PaymentInfoFree(m_dTotal);
+        return new PaymentInfoFree(m_dTotal, m_dPaid);
     }    
     public String getTransactionID(){
         return "no ID";
@@ -77,10 +83,15 @@ public class PaymentInfoFree extends PaymentInfo {
     public String getReturnMessage() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+     * @return 
 */
+    public String printPaid() {
+        return Formats.CURRENCY.formatValue(m_dPaid);
+    }
     
+    @Override
     public String getVoucher() {
         return null;
-    }    
+    }     
 
 }

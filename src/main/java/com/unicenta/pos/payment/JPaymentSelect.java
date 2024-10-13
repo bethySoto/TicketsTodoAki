@@ -226,10 +226,13 @@ public abstract class JPaymentSelect extends javax.swing.JDialog
             }
 
             jpayinterface.getComponent().applyComponentOrientation(getComponentOrientation());
-            m_jTabPayment.addTab(
+            String namePago= AppLocal.getIntString(jpay.getLabelKey());
+            if(namePago.equals("Caja") || namePago.equals("Tarjeta") || namePago.equals("Pte. de pago") || namePago.equals("Vale") || namePago.equals("Banco") || namePago.equals("Reembolso")){
+                m_jTabPayment.addTab(
                     AppLocal.getIntString(jpay.getLabelKey()),
                     new javax.swing.ImageIcon(getClass().getResource(jpay.getIconKey())),
                     jpayinterface.getComponent());
+            }
         }
     }
 

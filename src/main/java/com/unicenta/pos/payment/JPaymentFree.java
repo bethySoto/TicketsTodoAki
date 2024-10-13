@@ -31,6 +31,7 @@ public class JPaymentFree extends javax.swing.JPanel implements JPaymentInterfac
     
     private double m_dTotal;
     private JPaymentNotifier m_notifier;
+    private double m_dPaid;
     
     /** Creates new form JPaymentFree
      * @param notifier */
@@ -53,6 +54,14 @@ public class JPaymentFree extends javax.swing.JPanel implements JPaymentInterfac
         // m_jTotal.setText(Formats.CURRENCY.formatValue(new Double(m_dTotal)));
         
         m_notifier.setStatus(true, true);
+        
+        Double value = null;
+        if (value == null || value == 0.0) {
+            m_dPaid = m_dTotal;
+        } else {            
+            m_dPaid = value;
+
+        }  
     }
     
     /**
@@ -61,7 +70,7 @@ public class JPaymentFree extends javax.swing.JPanel implements JPaymentInterfac
      */
     @Override
     public PaymentInfo executePayment() {
-        return new PaymentInfoFree(m_dTotal);
+        return new PaymentInfoFree(m_dTotal, m_dPaid);
     }
 
     /**
