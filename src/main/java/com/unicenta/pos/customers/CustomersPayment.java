@@ -178,7 +178,7 @@ public class CustomersPayment extends javax.swing.JPanel implements JPanelView, 
         
     }
 
-    private void resetCustomer() {
+    public void resetCustomer() {
 
         customerext = null;
 

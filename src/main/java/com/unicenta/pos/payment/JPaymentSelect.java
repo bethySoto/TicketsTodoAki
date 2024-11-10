@@ -22,6 +22,8 @@ package com.unicenta.pos.payment;
 import com.unicenta.format.Formats;
 import com.unicenta.pos.customers.CustomerInfoExt;
 import com.unicenta.pos.customers.DataLogicCustomers;
+import com.unicenta.pos.ticket.TicketInfo;
+
 import com.unicenta.pos.forms.AppLocal;
 import com.unicenta.pos.forms.AppView;
 import com.unicenta.pos.forms.DataLogicSales;
@@ -51,7 +53,9 @@ public abstract class JPaymentSelect extends javax.swing.JDialog
     private double m_dTotal;
     private CustomerInfoExt customerext;
     private DataLogicSystem dlSystem;
-    private DataLogicCustomers dlCustomers    ;
+    private DataLogicCustomers dlCustomers;
+    private TicketInfo dlTicket;
+
     DataLogicSales dlSales;
 
     // JG 16 May 12 use diamond inference
@@ -104,6 +108,8 @@ public abstract class JPaymentSelect extends javax.swing.JDialog
         this.app = app;
         dlSystem = (DataLogicSystem) app.getBean("com.unicenta.pos.forms.DataLogicSystem");
         dlCustomers= (DataLogicCustomers) app.getBean("com.unicenta.pos.customers.DataLogicCustomers");
+        //dlTicket= (TicketInfo) app.getBean("com.unicenta.pos.ticket.TicketInfo");
+
         dlSales = (DataLogicSales) app.getBean("com.unicenta.pos.forms.DataLogicSales");
 
         printselected = false;
@@ -740,6 +746,10 @@ public abstract class JPaymentSelect extends javax.swing.JDialog
             }
         };
 
+        //restDB.setCustomerNameInTableByTicketId(null, m_oTicket.getId());
+        if (dlTicket != null) {
+            dlTicket.setCustomer(null);
+        }
         worker.execute();
     }//GEN-LAST:event_m_jButtonOKActionPerformed
 
