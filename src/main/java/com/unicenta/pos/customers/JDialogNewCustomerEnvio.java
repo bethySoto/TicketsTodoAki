@@ -79,7 +79,7 @@ public class JDialogNewCustomerEnvio extends javax.swing.JDialog {
         customer[10] = null;
         customer[11] = null;
         customer[12] = null; 
-        customer[13] = null;
+        customer[13] = Formats.STRING.parseValue(m_jName.getText());
         customer[14] = null;
         customer[15] = null;
         customer[16] = Formats.STRING.parseValue(txtPhone.getText());
@@ -260,7 +260,7 @@ public class JDialogNewCustomerEnvio extends javax.swing.JDialog {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(135, 135, 135))
+                .addGap(20, 20, 20))
         );
 
         getContentPane().add(jPanel3, java.awt.BorderLayout.NORTH);
@@ -300,7 +300,7 @@ public class JDialogNewCustomerEnvio extends javax.swing.JDialog {
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.SOUTH);
 
-        setSize(new java.awt.Dimension(651, 455));
+        setSize(new java.awt.Dimension(651, 356));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
